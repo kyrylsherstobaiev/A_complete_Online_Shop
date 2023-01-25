@@ -9,6 +9,6 @@ router.get('/products', adminController.getProducts); // /admin/products
 
 router.get('/products/new', adminController.getNewProduct);
 
-router.post('/products', imageUploadMiddleware, adminController.createNewProduct)
+router.post('/products', imageUploadMiddleware, adminController.createNewProduct);
 
 module.exports = router;
