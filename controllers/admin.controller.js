@@ -59,10 +59,24 @@ async function updateProduct(req, res, next) {
 
 }
 
+async function deleteProduct(req, res, next) {
+    let product;
+    try {
+        product = await Product.findByID(req.params.id);
+        await product.remove();
+    } catch (error) {
+        return next(error);
+    }
+
+    res.json({message: 'Deleted product!'});
+
+}
+
 module.exports = {
     getNewProduct: getNewProduct,
     getProducts: getProducts,
     createNewProduct: createNewProduct,
     getUpdateProduct: getUpdateProduct,
     updateProduct: updateProduct,
+    deleteProduct: deleteProduct,
 }

@@ -40,7 +40,7 @@ class Product {
         });
     }
 
-    updateImageData(){
+    updateImageData() {
         this.imagePath = `product-data/images/${this.image}`;
         this.imageUrl = `/products/assets/images/${this.image}`;
     }
@@ -57,7 +57,7 @@ class Product {
         if (this.id) {
             const productId = new mongodb.ObjectId(this.id);
 
-            if(!this.image){
+            if (!this.image) {
                 delete productData.image;
             }
             await db.getDb().collection('products').updateOne({_id: productId}, {
@@ -71,6 +71,11 @@ class Product {
     async replaceImage(newImage) {
         this.image = newImage;
         this.updateImageData();
+    }
+
+    remove() {
+        const productId = new mongodb.ObjectId(this.id);
+        return db.getDb().collection('products').deleteOne({_id: productId});
     }
 
 }
