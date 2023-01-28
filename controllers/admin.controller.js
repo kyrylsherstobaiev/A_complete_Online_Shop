@@ -6,7 +6,6 @@ async function getProducts(req, res, next) {
         res.render('admin/products/all-products', {products: products});
     } catch (error) {
         next();
-        return;
     }
 }
 
