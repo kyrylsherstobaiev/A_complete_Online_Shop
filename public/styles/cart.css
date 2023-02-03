@@ -36,6 +36,11 @@
     color: var(--color-primary-500);
 }
 
+#cart-total  #cart-total-fallback {
+    font-size: 1rem;
+    text-wrap: normal;
+}
+
 @media (min-width: 48rem) {
     .cart-item {
         flex-direction: row;
